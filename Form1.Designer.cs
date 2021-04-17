@@ -46,12 +46,16 @@ namespace FinalProject_Winter2021
             this.labelEmail = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonBook = new System.Windows.Forms.Button();
+            this.maskedTextBoxPatientId = new System.Windows.Forms.MaskedTextBox();
+            this.labelPatientId = new System.Windows.Forms.Label();
             this.labelRequired = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +73,7 @@ namespace FinalProject_Winter2021
             // 
             this.dateTimePickerBooking.CustomFormat = "yyyy/MM/dd HH:mm";
             this.dateTimePickerBooking.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerBooking.Location = new System.Drawing.Point(222, 36);
+            this.dateTimePickerBooking.Location = new System.Drawing.Point(222, 42);
             this.dateTimePickerBooking.Name = "dateTimePickerBooking";
             this.dateTimePickerBooking.Size = new System.Drawing.Size(200, 31);
             this.dateTimePickerBooking.TabIndex = 4;
@@ -77,7 +81,7 @@ namespace FinalProject_Winter2021
             // labelApoTime
             // 
             this.labelApoTime.AutoSize = true;
-            this.labelApoTime.Location = new System.Drawing.Point(20, 42);
+            this.labelApoTime.Location = new System.Drawing.Point(20, 48);
             this.labelApoTime.Name = "labelApoTime";
             this.labelApoTime.Size = new System.Drawing.Size(160, 25);
             this.labelApoTime.TabIndex = 5;
@@ -85,7 +89,7 @@ namespace FinalProject_Winter2021
             // 
             // domainUpDownService
             // 
-            this.domainUpDownService.Location = new System.Drawing.Point(222, 71);
+            this.domainUpDownService.Location = new System.Drawing.Point(222, 77);
             this.domainUpDownService.Name = "domainUpDownService";
             this.domainUpDownService.Size = new System.Drawing.Size(200, 31);
             this.domainUpDownService.TabIndex = 7;
@@ -94,7 +98,7 @@ namespace FinalProject_Winter2021
             // labelService
             // 
             this.labelService.AutoSize = true;
-            this.labelService.Location = new System.Drawing.Point(20, 74);
+            this.labelService.Location = new System.Drawing.Point(20, 80);
             this.labelService.Name = "labelService";
             this.labelService.Size = new System.Drawing.Size(67, 25);
             this.labelService.TabIndex = 8;
@@ -121,7 +125,7 @@ namespace FinalProject_Winter2021
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(20, 112);
+            this.labelFirstName.Location = new System.Drawing.Point(20, 118);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(97, 25);
             this.labelFirstName.TabIndex = 11;
@@ -130,7 +134,7 @@ namespace FinalProject_Winter2021
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(20, 149);
+            this.labelLastName.Location = new System.Drawing.Point(20, 155);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(95, 25);
             this.labelLastName.TabIndex = 12;
@@ -138,14 +142,14 @@ namespace FinalProject_Winter2021
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(222, 108);
+            this.textBoxFirstName.Location = new System.Drawing.Point(222, 114);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(200, 31);
             this.textBoxFirstName.TabIndex = 13;
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(222, 145);
+            this.textBoxLastName.Location = new System.Drawing.Point(222, 151);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(200, 31);
             this.textBoxLastName.TabIndex = 14;
@@ -153,7 +157,7 @@ namespace FinalProject_Winter2021
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
-            this.labelPhone.Location = new System.Drawing.Point(20, 186);
+            this.labelPhone.Location = new System.Drawing.Point(20, 192);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(62, 25);
             this.labelPhone.TabIndex = 16;
@@ -161,7 +165,7 @@ namespace FinalProject_Winter2021
             // 
             // maskedTextBoxPhone
             // 
-            this.maskedTextBoxPhone.Location = new System.Drawing.Point(222, 182);
+            this.maskedTextBoxPhone.Location = new System.Drawing.Point(222, 188);
             this.maskedTextBoxPhone.Mask = "(999) 000-0000";
             this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
             this.maskedTextBoxPhone.Size = new System.Drawing.Size(200, 31);
@@ -170,7 +174,7 @@ namespace FinalProject_Winter2021
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(20, 223);
+            this.labelEmail.Location = new System.Drawing.Point(20, 229);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(61, 25);
             this.labelEmail.TabIndex = 18;
@@ -178,13 +182,17 @@ namespace FinalProject_Winter2021
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(222, 219);
+            this.textBoxEmail.Location = new System.Drawing.Point(222, 225);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(200, 31);
             this.textBoxEmail.TabIndex = 19;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonClear);
+            this.groupBox1.Controls.Add(this.buttonBook);
+            this.groupBox1.Controls.Add(this.maskedTextBoxPatientId);
+            this.groupBox1.Controls.Add(this.labelPatientId);
             this.groupBox1.Controls.Add(this.domainUpDownService);
             this.groupBox1.Controls.Add(this.textBoxEmail);
             this.groupBox1.Controls.Add(this.dateTimePickerBooking);
@@ -202,78 +210,118 @@ namespace FinalProject_Winter2021
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(40, 102);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(58, 121);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 285);
+            this.groupBox1.Size = new System.Drawing.Size(453, 381);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Appointment Information";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonClear.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonClear.Location = new System.Drawing.Point(377, 326);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(70, 34);
+            this.buttonClear.TabIndex = 28;
+            this.buttonClear.Text = "clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonBook
+            // 
+            this.buttonBook.Location = new System.Drawing.Point(174, 326);
+            this.buttonBook.Name = "buttonBook";
+            this.buttonBook.Size = new System.Drawing.Size(112, 34);
+            this.buttonBook.TabIndex = 21;
+            this.buttonBook.Text = "BOOK";
+            this.buttonBook.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBoxPatientId
+            // 
+            this.maskedTextBoxPatientId.Location = new System.Drawing.Point(222, 262);
+            this.maskedTextBoxPatientId.Mask = "00000";
+            this.maskedTextBoxPatientId.Name = "maskedTextBoxPatientId";
+            this.maskedTextBoxPatientId.Size = new System.Drawing.Size(200, 31);
+            this.maskedTextBoxPatientId.TabIndex = 27;
+            this.maskedTextBoxPatientId.ValidatingType = typeof(int);
+            // 
+            // labelPatientId
+            // 
+            this.labelPatientId.AutoSize = true;
+            this.labelPatientId.Location = new System.Drawing.Point(20, 265);
+            this.labelPatientId.Name = "labelPatientId";
+            this.labelPatientId.Size = new System.Drawing.Size(88, 25);
+            this.labelPatientId.TabIndex = 23;
+            this.labelPatientId.Text = "Patient ID";
             // 
             // labelRequired
             // 
             this.labelRequired.AutoSize = true;
             this.labelRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelRequired.ForeColor = System.Drawing.Color.Red;
-            this.labelRequired.Location = new System.Drawing.Point(174, 38);
+            this.labelRequired.Location = new System.Drawing.Point(174, 44);
             this.labelRequired.Name = "labelRequired";
             this.labelRequired.Size = new System.Drawing.Size(24, 29);
             this.labelRequired.TabIndex = 21;
             this.labelRequired.Text = "*";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(546, 338);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 29);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(76, 186);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 29);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "*";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(108, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 29);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "*";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(110, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 29);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "*";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(81, 71);
+            this.label6.Location = new System.Drawing.Point(81, 77);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 29);
             this.label6.TabIndex = 26;
             this.label6.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(110, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 29);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(108, 152);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 29);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(76, 192);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 29);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(102, 262);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 29);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "*";
             // 
             // Form1
             // 
@@ -281,7 +329,6 @@ namespace FinalProject_Winter2021
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 705);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.buttonReview);
@@ -319,6 +366,10 @@ namespace FinalProject_Winter2021
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelPatientId;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPatientId;
+        private System.Windows.Forms.Button buttonBook;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 

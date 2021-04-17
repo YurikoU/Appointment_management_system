@@ -29,5 +29,15 @@ namespace FinalProject_Winter2021
             domainUpDownService.Items.Insert(3, "Orthodontics");
         }
 
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            dateTimePickerBooking.Value = DateTime.Now;
+            domainUpDownService.Text = "General Dentistry";
+            textBoxFirstName.Text = "";
+            textBoxLastName.Text = "";
+            maskedTextBoxPhone.Text = "";
+            textBoxEmail.Text = "";
+            maskedTextBoxPatientId.Text = "";
+        }
     }
 }
