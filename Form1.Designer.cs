@@ -30,39 +30,91 @@ namespace FinalProject_Winter2021
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerBooking = new System.Windows.Forms.DateTimePicker();
+            this.labelApoTime = new System.Windows.Forms.Label();
+            this.domainUpDownService = new System.Windows.Forms.DomainUpDown();
+            this.labelService = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.buttonReview = new System.Windows.Forms.Button();
+            this.buttonCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // label1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(285, 96);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(248, 29);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Review existing reservation";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(340, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 32);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Please select action";
             // 
-            // radioButton2
+            // dateTimePickerBooking
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(285, 152);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(246, 29);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Create a new appointment";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.dateTimePickerBooking.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.dateTimePickerBooking.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerBooking.Location = new System.Drawing.Point(178, 84);
+            this.dateTimePickerBooking.Name = "dateTimePickerBooking";
+            this.dateTimePickerBooking.Size = new System.Drawing.Size(200, 31);
+            this.dateTimePickerBooking.TabIndex = 4;
+            // 
+            // labelApoTime
+            // 
+            this.labelApoTime.AutoSize = true;
+            this.labelApoTime.Location = new System.Drawing.Point(12, 84);
+            this.labelApoTime.Name = "labelApoTime";
+            this.labelApoTime.Size = new System.Drawing.Size(160, 25);
+            this.labelApoTime.TabIndex = 5;
+            this.labelApoTime.Text = "Appointment Date";
+            // 
+            // domainUpDownService
+            // 
+            this.domainUpDownService.Location = new System.Drawing.Point(178, 130);
+            this.domainUpDownService.Name = "domainUpDownService";
+            this.domainUpDownService.Size = new System.Drawing.Size(200, 31);
+            this.domainUpDownService.TabIndex = 7;
+            this.domainUpDownService.Text = "General Dentistry";
+            // 
+            // labelService
+            // 
+            this.labelService.AutoSize = true;
+            this.labelService.Location = new System.Drawing.Point(12, 132);
+            this.labelService.Name = "labelService";
+            this.labelService.Size = new System.Drawing.Size(67, 25);
+            this.labelService.TabIndex = 8;
+            this.labelService.Text = "Service";
+            // 
+            // buttonReview
+            // 
+            this.buttonReview.Location = new System.Drawing.Point(237, 44);
+            this.buttonReview.Name = "buttonReview";
+            this.buttonReview.Size = new System.Drawing.Size(112, 34);
+            this.buttonReview.TabIndex = 9;
+            this.buttonReview.Text = "REVIEW";
+            this.buttonReview.UseVisualStyleBackColor = true;
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Location = new System.Drawing.Point(437, 44);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(112, 34);
+            this.buttonCreate.TabIndex = 10;
+            this.buttonCreate.Text = "BOOK";
+            this.buttonCreate.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 635);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.ClientSize = new System.Drawing.Size(1116, 705);
+            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.buttonReview);
+            this.Controls.Add(this.labelService);
+            this.Controls.Add(this.domainUpDownService);
+            this.Controls.Add(this.labelApoTime);
+            this.Controls.Add(this.dateTimePickerBooking);
+            this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Appointment Management System";
@@ -72,9 +124,14 @@ namespace FinalProject_Winter2021
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBooking;
+        private System.Windows.Forms.Label labelApoTime;
+        private System.Windows.Forms.DomainUpDown domainUpDownService;
+        private System.Windows.Forms.Label labelService;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button buttonReview;
+        private System.Windows.Forms.Button buttonCreate;
     }
 }
 
