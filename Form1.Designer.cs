@@ -45,7 +45,7 @@ namespace FinalProject_Winter2021
             this.maskedTextBoxPhone = new System.Windows.Forms.MaskedTextBox();
             this.labelEmail = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxAppointmentInfo = new System.Windows.Forms.GroupBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonBook = new System.Windows.Forms.Button();
             this.maskedTextBoxPatientId = new System.Windows.Forms.MaskedTextBox();
@@ -56,7 +56,9 @@ namespace FinalProject_Winter2021
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.dataGridViewCalendar = new System.Windows.Forms.DataGridView();
+            this.groupBoxAppointmentInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -106,21 +108,29 @@ namespace FinalProject_Winter2021
             // 
             // buttonReview
             // 
-            this.buttonReview.Location = new System.Drawing.Point(237, 44);
+            this.buttonReview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonReview.Location = new System.Drawing.Point(168, 44);
             this.buttonReview.Name = "buttonReview";
-            this.buttonReview.Size = new System.Drawing.Size(112, 34);
+            this.buttonReview.Size = new System.Drawing.Size(225, 34);
             this.buttonReview.TabIndex = 9;
-            this.buttonReview.Text = "REVIEW";
+            this.buttonReview.Text = "See calendar";
             this.buttonReview.UseVisualStyleBackColor = true;
+            this.buttonReview.Click += new System.EventHandler(this.buttonReview_Click);
             // 
             // buttonNew
             // 
+            this.buttonNew.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonNew.Location = new System.Drawing.Point(437, 44);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(112, 34);
+            this.buttonNew.Size = new System.Drawing.Size(225, 34);
             this.buttonNew.TabIndex = 10;
-            this.buttonNew.Text = "NEW";
+            this.buttonNew.Text = "Start a new reservation";
             this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // labelFirstName
             // 
@@ -187,42 +197,46 @@ namespace FinalProject_Winter2021
             this.textBoxEmail.Size = new System.Drawing.Size(200, 31);
             this.textBoxEmail.TabIndex = 19;
             // 
-            // groupBox1
+            // groupBoxAppointmentInfo
             // 
-            this.groupBox1.Controls.Add(this.buttonClear);
-            this.groupBox1.Controls.Add(this.buttonBook);
-            this.groupBox1.Controls.Add(this.maskedTextBoxPatientId);
-            this.groupBox1.Controls.Add(this.labelPatientId);
-            this.groupBox1.Controls.Add(this.domainUpDownService);
-            this.groupBox1.Controls.Add(this.textBoxEmail);
-            this.groupBox1.Controls.Add(this.dateTimePickerBooking);
-            this.groupBox1.Controls.Add(this.labelEmail);
-            this.groupBox1.Controls.Add(this.labelApoTime);
-            this.groupBox1.Controls.Add(this.maskedTextBoxPhone);
-            this.groupBox1.Controls.Add(this.labelService);
-            this.groupBox1.Controls.Add(this.labelPhone);
-            this.groupBox1.Controls.Add(this.labelFirstName);
-            this.groupBox1.Controls.Add(this.textBoxLastName);
-            this.groupBox1.Controls.Add(this.labelLastName);
-            this.groupBox1.Controls.Add(this.textBoxFirstName);
-            this.groupBox1.Controls.Add(this.labelRequired);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(58, 121);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 381);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Appointment Information";
+            this.groupBoxAppointmentInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxAppointmentInfo.Controls.Add(this.buttonClear);
+            this.groupBoxAppointmentInfo.Controls.Add(this.buttonBook);
+            this.groupBoxAppointmentInfo.Controls.Add(this.maskedTextBoxPatientId);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelPatientId);
+            this.groupBoxAppointmentInfo.Controls.Add(this.domainUpDownService);
+            this.groupBoxAppointmentInfo.Controls.Add(this.textBoxEmail);
+            this.groupBoxAppointmentInfo.Controls.Add(this.dateTimePickerBooking);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelEmail);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelApoTime);
+            this.groupBoxAppointmentInfo.Controls.Add(this.maskedTextBoxPhone);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelService);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelPhone);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelFirstName);
+            this.groupBoxAppointmentInfo.Controls.Add(this.textBoxLastName);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelLastName);
+            this.groupBoxAppointmentInfo.Controls.Add(this.textBoxFirstName);
+            this.groupBoxAppointmentInfo.Controls.Add(this.labelRequired);
+            this.groupBoxAppointmentInfo.Controls.Add(this.label6);
+            this.groupBoxAppointmentInfo.Controls.Add(this.label5);
+            this.groupBoxAppointmentInfo.Controls.Add(this.label4);
+            this.groupBoxAppointmentInfo.Controls.Add(this.label3);
+            this.groupBoxAppointmentInfo.Controls.Add(this.label2);
+            this.groupBoxAppointmentInfo.Location = new System.Drawing.Point(194, 115);
+            this.groupBoxAppointmentInfo.Name = "groupBoxAppointmentInfo";
+            this.groupBoxAppointmentInfo.Size = new System.Drawing.Size(453, 371);
+            this.groupBoxAppointmentInfo.TabIndex = 20;
+            this.groupBoxAppointmentInfo.TabStop = false;
+            this.groupBoxAppointmentInfo.Text = "Appointment Information";
+            this.groupBoxAppointmentInfo.Visible = false;
             // 
             // buttonClear
             // 
             this.buttonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.buttonClear.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonClear.Location = new System.Drawing.Point(377, 326);
+            this.buttonClear.Location = new System.Drawing.Point(377, 315);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(70, 34);
             this.buttonClear.TabIndex = 28;
@@ -232,11 +246,11 @@ namespace FinalProject_Winter2021
             // 
             // buttonBook
             // 
-            this.buttonBook.Location = new System.Drawing.Point(174, 326);
+            this.buttonBook.Location = new System.Drawing.Point(174, 315);
             this.buttonBook.Name = "buttonBook";
             this.buttonBook.Size = new System.Drawing.Size(112, 34);
             this.buttonBook.TabIndex = 21;
-            this.buttonBook.Text = "BOOK";
+            this.buttonBook.Text = "book";
             this.buttonBook.UseVisualStyleBackColor = true;
             // 
             // maskedTextBoxPatientId
@@ -323,21 +337,34 @@ namespace FinalProject_Winter2021
             this.label2.TabIndex = 22;
             this.label2.Text = "*";
             // 
+            // dataGridViewCalendar
+            // 
+            this.dataGridViewCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCalendar.Location = new System.Drawing.Point(12, 514);
+            this.dataGridViewCalendar.Name = "dataGridViewCalendar";
+            this.dataGridViewCalendar.RowHeadersWidth = 62;
+            this.dataGridViewCalendar.RowTemplate.Height = 33;
+            this.dataGridViewCalendar.Size = new System.Drawing.Size(1092, 236);
+            this.dataGridViewCalendar.TabIndex = 21;
+            this.dataGridViewCalendar.Visible = false;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 705);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1116, 762);
+            this.Controls.Add(this.dataGridViewCalendar);
+            this.Controls.Add(this.groupBoxAppointmentInfo);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.buttonReview);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Appointment Management System";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxAppointmentInfo.ResumeLayout(false);
+            this.groupBoxAppointmentInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +386,7 @@ namespace FinalProject_Winter2021
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPhone;
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxAppointmentInfo;
         private System.Windows.Forms.Label labelRequired;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
@@ -370,6 +397,7 @@ namespace FinalProject_Winter2021
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPatientId;
         private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.DataGridView dataGridViewCalendar;
     }
 }
 

@@ -5,10 +5,13 @@
 
 
 
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+using MongoDB.Driver.Core.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,6 +41,22 @@ namespace FinalProject_Winter2021
             maskedTextBoxPhone.Text = "";
             textBoxEmail.Text = "";
             maskedTextBoxPatientId.Text = "";
+        }
+
+        private void buttonReview_Click(object sender, EventArgs e)
+        {
+            buttonReview.Enabled = false;
+            groupBoxAppointmentInfo.Visible = false;
+            buttonNew.Enabled = true;
+            dataGridViewCalendar.Visible = true;
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            buttonReview.Enabled = true;
+            groupBoxAppointmentInfo.Visible = true;
+            buttonNew.Enabled = false;
+            dataGridViewCalendar.Visible = false;
         }
     }
 }
