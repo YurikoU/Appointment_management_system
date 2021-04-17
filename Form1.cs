@@ -23,6 +23,10 @@ namespace FinalProject_Winter2021
         public Form1()
         {
             InitializeComponent();
+            domainUpDownService.Items.Insert(0, "General Dentistry");
+            domainUpDownService.Items.Insert(1, "Dental Hygiene");
+            domainUpDownService.Items.Insert(2, "Pediatric Dentistry");
+            domainUpDownService.Items.Insert(3, "Orthodontics");
         }
 
     }

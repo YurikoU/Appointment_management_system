@@ -35,7 +35,6 @@ namespace FinalProject_Winter2021
             this.labelApoTime = new System.Windows.Forms.Label();
             this.domainUpDownService = new System.Windows.Forms.DomainUpDown();
             this.labelService = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.buttonReview = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -105,6 +104,7 @@ namespace FinalProject_Winter2021
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 705);
@@ -129,7 +129,6 @@ namespace FinalProject_Winter2021
         private System.Windows.Forms.Label labelApoTime;
         private System.Windows.Forms.DomainUpDown domainUpDownService;
         private System.Windows.Forms.Label labelService;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button buttonReview;
         private System.Windows.Forms.Button buttonCreate;
     }
