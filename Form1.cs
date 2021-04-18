@@ -37,6 +37,11 @@ namespace Demo
 
         private void buttonSee_Click(object sender, EventArgs e)
         {
+            buttonSee.Enabled = false;
+            groupBoxAppInfo.Visible = false;
+            buttonStartNew.Enabled = true;
+            dataGridViewCalendar.Visible = true;
+
             string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
             MySqlConnection conn = new MySqlConnection(connection);
             // Connect to the database
@@ -50,6 +55,14 @@ namespace Demo
             dataGridViewCalendar.DataSource = dt;
             //Close the database connection
             conn.Close();
+        }
+
+        private void buttonStartNew_Click(object sender, EventArgs e)
+        {
+            buttonSee.Enabled = true;
+            groupBoxAppInfo.Visible = true;
+            buttonStartNew.Enabled = false;
+            dataGridViewCalendar.Visible = false;
         }
     }
 }

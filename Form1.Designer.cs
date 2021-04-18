@@ -77,6 +77,7 @@ namespace Demo
             this.buttonStartNew.TabIndex = 1;
             this.buttonStartNew.Text = "Start a new reservation";
             this.buttonStartNew.UseVisualStyleBackColor = true;
+            this.buttonStartNew.Click += new System.EventHandler(this.buttonStartNew_Click);
             // 
             // groupBoxAppInfo
             // 
@@ -320,6 +321,7 @@ namespace Demo
             // 
             // dataGridViewCalendar
             // 
+            this.dataGridViewCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCalendar.Location = new System.Drawing.Point(12, 446);
             this.dataGridViewCalendar.Name = "dataGridViewCalendar";
