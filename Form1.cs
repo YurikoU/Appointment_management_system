@@ -1,41 +1,33 @@
 ﻿/*
- Yuriko Uchida
-#200448500 
- */
+Student Name: Yuriko Uchida
+Student Number: #200448500
 
+Due: April 20th, 2021
+Final Project
+*/
 
-
-using DocumentFormat.OpenXml.Drawing.Diagrams;
-using MongoDB.Driver.Core.Configuration;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace FinalProject_Winter2021
+namespace Demo
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-            domainUpDownService.Items.Insert(0, "General Dentistry");
-            domainUpDownService.Items.Insert(1, "Dental Hygiene");
-            domainUpDownService.Items.Insert(2, "Pediatric Dentistry");
-            domainUpDownService.Items.Insert(3, "Orthodontics");
+            domainUpDownTreatment.Items.Insert(0, "General Dentistry");
+            domainUpDownTreatment.Items.Insert(1, "Dental Hygiene");
+            domainUpDownTreatment.Items.Insert(2, "Pediatric Dentistry");
+            domainUpDownTreatment.Items.Insert(3, "Orthodontics");
         }
 
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            dateTimePickerBooking.Value = DateTime.Now;
-            domainUpDownService.Text = "General Dentistry";
+            dateTimePickerApp.Value = DateTime.Now;
+            domainUpDownTreatment.Text = "  -------------------------";
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
             maskedTextBoxPhone.Text = "";
@@ -43,20 +35,22 @@ namespace FinalProject_Winter2021
             maskedTextBoxPatientId.Text = "";
         }
 
-        private void buttonReview_Click(object sender, EventArgs e)
+        private void buttonSee_Click(object sender, EventArgs e)
         {
-            buttonReview.Enabled = false;
-            groupBoxAppointmentInfo.Visible = false;
-            buttonNew.Enabled = true;
-            dataGridViewCalendar.Visible = true;
-        }
+            string connection = "Server=localhost;Database=mysql_winter2021;uid=root;pwd=";
 
-        private void buttonNew_Click(object sender, EventArgs e)
-        {
-            buttonReview.Enabled = true;
-            groupBoxAppointmentInfo.Visible = true;
-            buttonNew.Enabled = false;
-            dataGridViewCalendar.Visible = false;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();    // 接続
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from clown_info;", conn);
+            da.Fill(dt);
+            dataGridViewCalendar.DataSource = dt;
+            //                conn.Close();	// 接続の解除
+
+
+
+
         }
     }
 }
