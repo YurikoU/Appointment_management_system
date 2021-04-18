@@ -142,7 +142,7 @@ namespace Demo
             // maskedTextBoxPhone
             // 
             this.maskedTextBoxPhone.Location = new System.Drawing.Point(233, 206);
-            this.maskedTextBoxPhone.Mask = "(999) 000-0000";
+            this.maskedTextBoxPhone.Mask = "(999) 0000-0000";
             this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
             this.maskedTextBoxPhone.Size = new System.Drawing.Size(200, 26);
             this.maskedTextBoxPhone.TabIndex = 12;
@@ -236,7 +236,7 @@ namespace Demo
             // 
             // dateTimePickerApp
             // 
-            this.dateTimePickerApp.CustomFormat = "MM/dd/yyyy HH:mm";
+            this.dateTimePickerApp.CustomFormat = "yyyy/MM/dd HH:mm";
             this.dateTimePickerApp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerApp.Location = new System.Drawing.Point(233, 46);
             this.dateTimePickerApp.Name = "dateTimePickerApp";
@@ -325,7 +325,7 @@ namespace Demo
             this.dataGridViewCalendar.Name = "dataGridViewCalendar";
             this.dataGridViewCalendar.RowHeadersWidth = 62;
             this.dataGridViewCalendar.RowTemplate.Height = 28;
-            this.dataGridViewCalendar.Size = new System.Drawing.Size(866, 220);
+            this.dataGridViewCalendar.Size = new System.Drawing.Size(903, 220);
             this.dataGridViewCalendar.TabIndex = 3;
             // 
             // Form1

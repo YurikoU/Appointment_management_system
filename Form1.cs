@@ -37,20 +37,19 @@ namespace Demo
 
         private void buttonSee_Click(object sender, EventArgs e)
         {
-            string connection = "Server=localhost;Database=mysql_winter2021;uid=root;pwd=";
-
+            string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
             MySqlConnection conn = new MySqlConnection(connection);
-            conn.Open();    // 接続
+            // Connect to the database
+            conn.Open();
 
             DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter("select * from clown_info;", conn);
+            string sql = "select appointment_id 'Appointment ID', start_time 'Start Time', end_time 'End Time', treatment Treatment, patient_id 'Patient ID', first_name 'First Name', last_name 'Last Name', phone 'Phone', email 'E-mail' from appointment where start_time >= now();";
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.Fill(dt);
+            // Display all reservation on the app
             dataGridViewCalendar.DataSource = dt;
-            //                conn.Close();	// 接続の解除
-
-
-
-
+            //Close the database connection
+            conn.Close();
         }
     }
 }
