@@ -41,8 +41,8 @@ namespace Demo
             buttonSee.Enabled = false;
             groupBoxAppInfo.Visible = false;
             buttonStartNew.Enabled = true;
-            //dataGridViewCalendar.Visible = true;
 
+            //Call Form2.cs to see the existing appointments
             Form2 frm2 = new Form2();
             frm2.Show();
         }
@@ -52,11 +52,28 @@ namespace Demo
             buttonSee.Enabled = true;
             groupBoxAppInfo.Visible = true;
             buttonStartNew.Enabled = false;
-            //dataGridViewCalendar.Visible = false;
         }
 
         private void buttonBook_Click(object sender, EventArgs e)
         {
+            string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
+            MySqlConnection conn = new MySqlConnection(connection);
+            //Connect to the database
+            conn.Open();
+            DataTable dt = new DataTable();
+            string sql = "select appointment_id 'Appointment ID', start_time 'Start Time', end_time 'End Time', treatment Treatment, patient_id 'Patient ID', first_name 'First Name', last_name 'Last Name', phone 'Phone', email 'E-mail' from appointment where start_time >= now();";
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.Fill(dt);
+            //Display all reservation on the app
+            //dataGridViewCalendar.DataSource = dt;
+            //Close the database connection
+            //conn.Close();
+
+            if (dateTimePickerApp.Value <= DateTime.Now)
+            {
+                richTextBoxAlert.Text = "Appointment time must be later than the current time."
+            }
+
 
         }
     }
