@@ -131,7 +131,7 @@ namespace Demo
             if (!validation)
             {
                 //If any information is not valid, the message will be shown
-                MessageBox.Show(msg);
+                MessageBox.Show(msg, "Some information is NOT valid.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -153,12 +153,13 @@ namespace Demo
                     string sql = "insert into appointment (start_time, end_time, treatment, patient_id, first_name, last_name, phone, email) values (" + start_time_string + ", " + end_time_string + ", "+ treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Successfully booked!" + "\nTime: " + start_time + "\nTreatment: " + treatment + "\nPatient ID: " + patient_id + "\nFirst Name" + first_name + "\nLast Name" + last_name + "\nPhone: " + phone + "\nE-mail: " + email);
+                    string success = "Successfully booked!" + "\nTime: " + start_time + "\nTreatment: " + treatment + "\nPatient ID: " + patient_id + "\nFirst Name" + first_name + "\nLast Name" + last_name + "\nPhone: " + phone + "\nE-mail: " + email;
+                    MessageBox.Show(success, "Success!", MessageBoxButtons.OK);
                     conn.Close();
                 }
                 catch (Exception a)
                 {
-                    MessageBox.Show("[ERROR] " + a.Message);
+                    MessageBox.Show("[ERROR] " + a.Message, "Reservation error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 
