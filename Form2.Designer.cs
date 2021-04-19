@@ -53,7 +53,7 @@ namespace Demo
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridViewCalendar);
             this.Name = "Form2";
-            this.Text = "Existing Appointments";
+            this.Text = "Existing Appointment List";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).EndInit();
             this.ResumeLayout(false);
 

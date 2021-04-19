@@ -32,6 +32,7 @@ namespace Demo
             this.buttonSee = new System.Windows.Forms.Button();
             this.buttonStartNew = new System.Windows.Forms.Button();
             this.groupBoxAppInfo = new System.Windows.Forms.GroupBox();
+            this.labelRequiredDescription = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonBook = new System.Windows.Forms.Button();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@ namespace Demo
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxAlert = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBoxAppInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,7 @@ namespace Demo
             // 
             // groupBoxAppInfo
             // 
+            this.groupBoxAppInfo.Controls.Add(this.labelRequiredDescription);
             this.groupBoxAppInfo.Controls.Add(this.button1);
             this.groupBoxAppInfo.Controls.Add(this.buttonBook);
             this.groupBoxAppInfo.Controls.Add(this.textBoxEmail);
@@ -105,17 +106,29 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label4);
             this.groupBoxAppInfo.Location = new System.Drawing.Point(12, 53);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
-            this.groupBoxAppInfo.Size = new System.Drawing.Size(475, 355);
+            this.groupBoxAppInfo.Size = new System.Drawing.Size(459, 380);
             this.groupBoxAppInfo.TabIndex = 2;
             this.groupBoxAppInfo.TabStop = false;
             this.groupBoxAppInfo.Text = "Appointment Information";
+            this.groupBoxAppInfo.Visible = false;
+            // 
+            // labelRequiredDescription
+            // 
+            this.labelRequiredDescription.AutoSize = true;
+            this.labelRequiredDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRequiredDescription.ForeColor = System.Drawing.Color.Red;
+            this.labelRequiredDescription.Location = new System.Drawing.Point(38, 270);
+            this.labelRequiredDescription.Name = "labelRequiredDescription";
+            this.labelRequiredDescription.Size = new System.Drawing.Size(160, 20);
+            this.labelRequiredDescription.TabIndex = 17;
+            this.labelRequiredDescription.Text = "* required information";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GrayText;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(389, 291);
+            this.button1.Location = new System.Drawing.Point(369, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 35);
             this.button1.TabIndex = 16;
@@ -125,7 +138,7 @@ namespace Demo
             // 
             // buttonBook
             // 
-            this.buttonBook.Location = new System.Drawing.Point(195, 291);
+            this.buttonBook.Location = new System.Drawing.Point(175, 306);
             this.buttonBook.Name = "buttonBook";
             this.buttonBook.Size = new System.Drawing.Size(80, 35);
             this.buttonBook.TabIndex = 15;
@@ -135,7 +148,7 @@ namespace Demo
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(233, 238);
+            this.textBoxEmail.Location = new System.Drawing.Point(213, 241);
             this.textBoxEmail.MaxLength = 40;
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(200, 26);
@@ -143,7 +156,7 @@ namespace Demo
             // 
             // maskedTextBoxPhone
             // 
-            this.maskedTextBoxPhone.Location = new System.Drawing.Point(233, 206);
+            this.maskedTextBoxPhone.Location = new System.Drawing.Point(213, 209);
             this.maskedTextBoxPhone.Mask = "(999) 0000-0000";
             this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
             this.maskedTextBoxPhone.Size = new System.Drawing.Size(200, 26);
@@ -151,7 +164,7 @@ namespace Demo
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(233, 174);
+            this.textBoxLastName.Location = new System.Drawing.Point(213, 177);
             this.textBoxLastName.MaxLength = 25;
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(200, 26);
@@ -159,7 +172,7 @@ namespace Demo
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(233, 142);
+            this.textBoxFirstName.Location = new System.Drawing.Point(213, 145);
             this.textBoxFirstName.MaxLength = 25;
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(200, 26);
@@ -167,7 +180,7 @@ namespace Demo
             // 
             // maskedTextBoxPatientId
             // 
-            this.maskedTextBoxPatientId.Location = new System.Drawing.Point(233, 110);
+            this.maskedTextBoxPatientId.Location = new System.Drawing.Point(213, 113);
             this.maskedTextBoxPatientId.Mask = "00000";
             this.maskedTextBoxPatientId.Name = "maskedTextBoxPatientId";
             this.maskedTextBoxPatientId.Size = new System.Drawing.Size(200, 26);
@@ -176,7 +189,7 @@ namespace Demo
             // 
             // domainUpDownTreatment
             // 
-            this.domainUpDownTreatment.Location = new System.Drawing.Point(233, 78);
+            this.domainUpDownTreatment.Location = new System.Drawing.Point(213, 81);
             this.domainUpDownTreatment.Name = "domainUpDownTreatment";
             this.domainUpDownTreatment.Size = new System.Drawing.Size(200, 26);
             this.domainUpDownTreatment.TabIndex = 8;
@@ -185,7 +198,7 @@ namespace Demo
             // labelPatientId
             // 
             this.labelPatientId.AutoSize = true;
-            this.labelPatientId.Location = new System.Drawing.Point(58, 110);
+            this.labelPatientId.Location = new System.Drawing.Point(38, 113);
             this.labelPatientId.Name = "labelPatientId";
             this.labelPatientId.Size = new System.Drawing.Size(80, 20);
             this.labelPatientId.TabIndex = 7;
@@ -194,7 +207,7 @@ namespace Demo
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(58, 241);
+            this.labelEmail.Location = new System.Drawing.Point(38, 244);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(53, 20);
             this.labelEmail.TabIndex = 6;
@@ -203,7 +216,7 @@ namespace Demo
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
-            this.labelPhone.Location = new System.Drawing.Point(58, 206);
+            this.labelPhone.Location = new System.Drawing.Point(38, 209);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(55, 20);
             this.labelPhone.TabIndex = 5;
@@ -212,7 +225,7 @@ namespace Demo
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(58, 177);
+            this.labelLastName.Location = new System.Drawing.Point(38, 180);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(86, 20);
             this.labelLastName.TabIndex = 4;
@@ -221,7 +234,7 @@ namespace Demo
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(58, 142);
+            this.labelFirstName.Location = new System.Drawing.Point(38, 145);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(86, 20);
             this.labelFirstName.TabIndex = 3;
@@ -230,7 +243,7 @@ namespace Demo
             // labelTreatment
             // 
             this.labelTreatment.AutoSize = true;
-            this.labelTreatment.Location = new System.Drawing.Point(58, 78);
+            this.labelTreatment.Location = new System.Drawing.Point(38, 81);
             this.labelTreatment.Name = "labelTreatment";
             this.labelTreatment.Size = new System.Drawing.Size(82, 20);
             this.labelTreatment.TabIndex = 2;
@@ -240,17 +253,17 @@ namespace Demo
             // 
             this.dateTimePickerApp.CustomFormat = "yyyy/MM/dd HH:mm";
             this.dateTimePickerApp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerApp.Location = new System.Drawing.Point(233, 46);
-            this.dateTimePickerApp.MinDate = new System.DateTime(2021, 4, 24, 23, 59, 59, 0);
+            this.dateTimePickerApp.Location = new System.Drawing.Point(213, 49);
+            this.dateTimePickerApp.MinDate = new System.DateTime(2021, 4, 18, 0, 0, 0, 0);
             this.dateTimePickerApp.Name = "dateTimePickerApp";
             this.dateTimePickerApp.Size = new System.Drawing.Size(200, 26);
             this.dateTimePickerApp.TabIndex = 1;
-            this.dateTimePickerApp.Value = new System.DateTime(2021, 4, 24, 23, 59, 59, 0);
+            this.dateTimePickerApp.Value = new System.DateTime(2021, 4, 18, 0, 0, 0, 0);
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(58, 46);
+            this.labelTime.Location = new System.Drawing.Point(38, 49);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(138, 20);
             this.labelTime.TabIndex = 0;
@@ -261,7 +274,7 @@ namespace Demo
             this.labelRequired.AutoSize = true;
             this.labelRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRequired.ForeColor = System.Drawing.Color.Red;
-            this.labelRequired.Location = new System.Drawing.Point(190, 46);
+            this.labelRequired.Location = new System.Drawing.Point(170, 49);
             this.labelRequired.Name = "labelRequired";
             this.labelRequired.Size = new System.Drawing.Size(24, 29);
             this.labelRequired.TabIndex = 3;
@@ -272,7 +285,7 @@ namespace Demo
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(135, 81);
+            this.label8.Location = new System.Drawing.Point(115, 84);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(24, 29);
             this.label8.TabIndex = 14;
@@ -283,7 +296,7 @@ namespace Demo
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(132, 110);
+            this.label7.Location = new System.Drawing.Point(112, 113);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(24, 29);
             this.label7.TabIndex = 10;
@@ -294,7 +307,7 @@ namespace Demo
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(139, 142);
+            this.label6.Location = new System.Drawing.Point(119, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 29);
             this.label6.TabIndex = 9;
@@ -305,7 +318,7 @@ namespace Demo
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(139, 177);
+            this.label5.Location = new System.Drawing.Point(119, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 29);
             this.label5.TabIndex = 8;
@@ -316,7 +329,7 @@ namespace Demo
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(108, 206);
+            this.label4.Location = new System.Drawing.Point(88, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 29);
             this.label4.TabIndex = 7;
@@ -324,27 +337,18 @@ namespace Demo
             // 
             // richTextBoxAlert
             // 
-            this.richTextBoxAlert.Location = new System.Drawing.Point(508, 53);
+            this.richTextBoxAlert.Location = new System.Drawing.Point(486, 53);
             this.richTextBoxAlert.Name = "richTextBoxAlert";
-            this.richTextBoxAlert.Size = new System.Drawing.Size(313, 355);
+            this.richTextBoxAlert.Size = new System.Drawing.Size(444, 380);
             this.richTextBoxAlert.TabIndex = 3;
             this.richTextBoxAlert.Text = "";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(338, 454);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 43);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.richTextBoxAlert.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 509);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(942, 454);
             this.Controls.Add(this.richTextBoxAlert);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
@@ -385,7 +389,7 @@ namespace Demo
         private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBoxAlert;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label labelRequiredDescription;
     }
 }
 

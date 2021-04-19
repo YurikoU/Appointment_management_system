@@ -8,6 +8,7 @@ Final Project
 
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Data;
 using System.Windows.Forms;
 
@@ -56,7 +57,9 @@ namespace Demo
 
         private void buttonBook_Click(object sender, EventArgs e)
         {
-            string time = dateTimePickerApp.Text;
+            bool validation = true;
+            string validation_msg = "";
+            string time = dateTimePickerApp.Value.ToShortDateString();
             string treatment = domainUpDownTreatment.Text;
             string patient_id = maskedTextBoxPatientId.Text;
             string first_name = textBoxFirstName.Text;
@@ -64,32 +67,54 @@ namespace Demo
             string phone = maskedTextBoxPhone.Text;
             string email = textBoxEmail.Text;
 
-            try 
-            {
-                string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
-                MySqlConnection conn = new MySqlConnection(connection);
-                //Connect to the database
-                conn.Open();
-                string sql = "insert into appointment (start_time, treatment, patient_id, first_name, last_name, phone, email) values (" + time + ", " + treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully booked!" + "\nTime: " + dateTimePickerApp.Text + "\nTreatment: " + domainUpDownTreatment.Text + "\nPatient ID: " + maskedTextBoxPatientId.Text + "\nFirst Name" + textBoxFirstName.Text + "\nLast Name" + textBoxLastName.Text + "\nPhone: " + maskedTextBoxPhone.Text + "\nE-mail: " + textBoxEmail.Text);
-                conn.Close();
-            }
-            catch (Exception a) {
-                MessageBox.Show("ERROR: " + a.Message);    
-            }
-
-
-
-
-
-//            if (dateTimePickerApp.Value <= DateTime.Now)
+//            if (dateTimePickerApp.Value.Date <= DateTime.Now)
 //            {
-//                richTextBoxAlert.Text = "Appointment time must be later than the current time.";
+//                validation_msg += "Appointment time must be later than the current time.\n";
+//                validation = false;
 //            }
+            if (domainUpDownTreatment.Text == "  ----------------------  ")
+            {
+                validation_msg += "Please select appropriate treatment.\n";
+                validation = false;
+            }
+            if (textBoxFirstName.Text == "" || textBoxLastName.Text == "")
+            {
+                validation_msg += "Please enter first and last name.\n";
+                validation = false;
+            }
+            if (maskedTextBoxPhone.Text.Length < 11)
+            {
+                validation_msg += "Please enter a proper phone number.\n";
+                validation = false;
+            }
 
 
+            if (!validation)
+            { 
+             richTextBoxAlert.Text = validation_msg;
+            
+            }
+
+
+            if (validation)
+            {
+                try
+                {
+                    string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
+                    MySqlConnection conn = new MySqlConnection(connection);
+                    //Connect to the database
+                    conn.Open();
+                    string sql = "insert into appointment (start_time, treatment, patient_id, first_name, last_name, phone, email) values (" + time + ", " + treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Successfully booked!" + "\nTime: " + dateTimePickerApp.Text + "\nTreatment: " + domainUpDownTreatment.Text + "\nPatient ID: " + maskedTextBoxPatientId.Text + "\nFirst Name" + textBoxFirstName.Text + "\nLast Name" + textBoxLastName.Text + "\nPhone: " + maskedTextBoxPhone.Text + "\nE-mail: " + textBoxEmail.Text);
+                    conn.Close();
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show("[ERROR] " + a.Message);
+                }
+            }
         }
     }
 }
