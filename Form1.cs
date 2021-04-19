@@ -9,6 +9,7 @@ Final Project
 using MySql.Data.MySqlClient;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -125,6 +126,10 @@ namespace Demo
                     validation = false;
                 }
             }
+            if (email == null)
+            {
+                email = "";            
+            }
             //End of validation---------------------------------------------------------------------------
 
 
@@ -141,20 +146,31 @@ namespace Demo
                     if (treatment == "Dental Hygiene")
                     {
                         end_time = start_time.AddHours(1);
-                    }
-                    else { 
+                    } else
+                    { 
                         end_time = start_time.AddHours(2);
                     }
                     string start_time_string = start_time.ToString();
                     string end_time_string = end_time.ToString();
 
-                    string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
+                    string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd= ";
                     MySqlConnection conn = new MySqlConnection(connection);
-                    //Connect to the database
                     conn.Open();
-                    string sql = "insert into appointment (start_time, end_time, treatment, patient_id, first_name, last_name, phone, email) values (" + start_time_string + ", " + end_time_string + ", "+ treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into appointment (start_time, end_time, treatment, patient_id, first_name, last_name, phone, email) values (@start_time, @end_time, @treatment, @patient_id, @first_name, @last_name, @phone, @email);";
+                    cmd.Parameters.AddWithValue("@start_time", start_time_string);
+                    cmd.Parameters.AddWithValue("@end_time", end_time_string);
+                    cmd.Parameters.AddWithValue("@treatment", treatment);
+                    cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                    cmd.Parameters.AddWithValue("@first_name", first_name);
+                    cmd.Parameters.AddWithValue("@last_name", last_name);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@email", email);
+
                     cmd.ExecuteNonQuery();
+
+
                     string success = "Successfully booked!" + "\nTime: " + start_time + "\nTreatment: " + treatment + "\nPatient ID: " + patient_id + "\nFirst Name" + first_name + "\nLast Name" + last_name + "\nPhone: " + phone + "\nE-mail: " + email;
                     MessageBox.Show(success, "Success!", MessageBoxButtons.OK);
                     conn.Close();
