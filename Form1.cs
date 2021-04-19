@@ -142,9 +142,11 @@ namespace Demo
                     {
                         end_time = start_time.AddHours(1);
                     }
-                    end_time = start_time.AddHours(2);
-                    string start_time_string = start_time.ToString("yyyy/MM/dd HH:mm");
-                    string end_time_string = end_time.ToString("yyyy/MM/dd HH:mm");
+                    else { 
+                        end_time = start_time.AddHours(2);
+                    }
+                    string start_time_string = start_time.ToString();
+                    string end_time_string = end_time.ToString();
 
                     string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
                     MySqlConnection conn = new MySqlConnection(connection);
@@ -159,7 +161,7 @@ namespace Demo
                 }
                 catch (Exception a)
                 {
-                    MessageBox.Show("[ERROR] " + a.Message, "Reservation error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("[ERROR] " + a.Message, "Reservation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 
