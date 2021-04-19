@@ -26,6 +26,7 @@ namespace Demo
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Reset the input
             dateTimePickerApp.Value = DateTime.Now;
             domainUpDownTreatment.Text = "  -------------------------";
             textBoxFirstName.Text = "";
@@ -40,21 +41,10 @@ namespace Demo
             buttonSee.Enabled = false;
             groupBoxAppInfo.Visible = false;
             buttonStartNew.Enabled = true;
-            dataGridViewCalendar.Visible = true;
+            //dataGridViewCalendar.Visible = true;
 
-            string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
-            MySqlConnection conn = new MySqlConnection(connection);
-            // Connect to the database
-            conn.Open();
-
-            DataTable dt = new DataTable();
-            string sql = "select appointment_id 'Appointment ID', start_time 'Start Time', end_time 'End Time', treatment Treatment, patient_id 'Patient ID', first_name 'First Name', last_name 'Last Name', phone 'Phone', email 'E-mail' from appointment where start_time >= now();";
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            da.Fill(dt);
-            // Display all reservation on the app
-            dataGridViewCalendar.DataSource = dt;
-            //Close the database connection
-            conn.Close();
+            Form2 frm2 = new Form2();
+            frm2.Show();
         }
 
         private void buttonStartNew_Click(object sender, EventArgs e)
@@ -62,7 +52,12 @@ namespace Demo
             buttonSee.Enabled = true;
             groupBoxAppInfo.Visible = true;
             buttonStartNew.Enabled = false;
-            dataGridViewCalendar.Visible = false;
+            //dataGridViewCalendar.Visible = false;
+        }
+
+        private void buttonBook_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

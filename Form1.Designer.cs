@@ -54,14 +54,12 @@ namespace Demo
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewCalendar = new System.Windows.Forms.DataGridView();
             this.groupBoxAppInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSee
             // 
-            this.buttonSee.Location = new System.Drawing.Point(243, 12);
+            this.buttonSee.Location = new System.Drawing.Point(29, 14);
             this.buttonSee.Name = "buttonSee";
             this.buttonSee.Size = new System.Drawing.Size(200, 35);
             this.buttonSee.TabIndex = 0;
@@ -71,7 +69,7 @@ namespace Demo
             // 
             // buttonStartNew
             // 
-            this.buttonStartNew.Location = new System.Drawing.Point(518, 12);
+            this.buttonStartNew.Location = new System.Drawing.Point(304, 14);
             this.buttonStartNew.Name = "buttonStartNew";
             this.buttonStartNew.Size = new System.Drawing.Size(200, 35);
             this.buttonStartNew.TabIndex = 1;
@@ -103,7 +101,7 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label6);
             this.groupBoxAppInfo.Controls.Add(this.label5);
             this.groupBoxAppInfo.Controls.Add(this.label4);
-            this.groupBoxAppInfo.Location = new System.Drawing.Point(243, 78);
+            this.groupBoxAppInfo.Location = new System.Drawing.Point(29, 80);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
             this.groupBoxAppInfo.Size = new System.Drawing.Size(475, 355);
             this.groupBoxAppInfo.TabIndex = 2;
@@ -131,6 +129,7 @@ namespace Demo
             this.buttonBook.TabIndex = 15;
             this.buttonBook.Text = "Book";
             this.buttonBook.UseVisualStyleBackColor = true;
+            this.buttonBook.Click += new System.EventHandler(this.buttonBook_Click);
             // 
             // textBoxEmail
             // 
@@ -319,23 +318,11 @@ namespace Demo
             this.label4.TabIndex = 7;
             this.label4.Text = "*";
             // 
-            // dataGridViewCalendar
-            // 
-            this.dataGridViewCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCalendar.Location = new System.Drawing.Point(12, 446);
-            this.dataGridViewCalendar.Name = "dataGridViewCalendar";
-            this.dataGridViewCalendar.RowHeadersWidth = 62;
-            this.dataGridViewCalendar.RowTemplate.Height = 28;
-            this.dataGridViewCalendar.Size = new System.Drawing.Size(903, 220);
-            this.dataGridViewCalendar.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 678);
-            this.Controls.Add(this.dataGridViewCalendar);
+            this.ClientSize = new System.Drawing.Size(559, 458);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
             this.Controls.Add(this.buttonSee);
@@ -343,7 +330,6 @@ namespace Demo
             this.Text = "Appointment Management System";
             this.groupBoxAppInfo.ResumeLayout(false);
             this.groupBoxAppInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,7 +361,6 @@ namespace Demo
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridViewCalendar;
     }
 }
 
