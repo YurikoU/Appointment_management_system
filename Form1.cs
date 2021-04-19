@@ -8,9 +8,7 @@ Final Project
 
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
-using System.Data;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -69,6 +67,9 @@ namespace Demo
             string msg = "";
             DateTime now = DateTime.Now;
             DateTime start_time = dateTimePickerApp.Value;
+            TimeSpan start_time_only = start_time.TimeOfDay;
+            TimeSpan start_business = new TimeSpan(10, 30, 0);
+            TimeSpan end_business = new TimeSpan(17, 00, 0);
 
             string treatment = domainUpDownTreatment.Text;
             string patient_id = maskedTextBoxPatientId.Text;
@@ -77,11 +78,18 @@ namespace Demo
             string phone = maskedTextBoxPhone.Text;
             string email = textBoxEmail.Text;
 
+            EmailAddressAttribute email_validation = new EmailAddressAttribute();
 
-            //Validation-----------------------------------------------------------------------------------
-            if (start_time < now)
+
+            //Validation----------------------------------------------------------------------------------
+            if (start_time <= now)
             {
                 msg += "Appointment time must be later than the current time.\n";
+                validation = false;
+            }
+            if (start_time_only < start_business || end_business < start_time_only)
+            {
+                msg += "Appointment time must be between 10:30-17:00.\n";
                 validation = false;
             }
             if (treatment == "--please select servicde--")
@@ -109,10 +117,20 @@ namespace Demo
                 msg += "Please enter a proper phone number.\n";
                 validation = false;
             }
+            if (email != "")
+            {
+                if (!email_validation.IsValid(email))
+                {
+                    msg += "Please enter a properly formatted e-mail address.\n";
+                    validation = false;
+                }
+            }
+            //End of validation---------------------------------------------------------------------------
+
 
             if (!validation)
             {
-                //If any information is not valid the message will be shown
+                //If any information is not valid, the message will be shown
                 MessageBox.Show(msg);
             }
             else

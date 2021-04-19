@@ -103,7 +103,7 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label6);
             this.groupBoxAppInfo.Controls.Add(this.label5);
             this.groupBoxAppInfo.Controls.Add(this.label4);
-            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 53);
+            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 72);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
             this.groupBoxAppInfo.Size = new System.Drawing.Size(459, 380);
             this.groupBoxAppInfo.TabIndex = 2;
@@ -338,7 +338,7 @@ namespace Demo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 454);
+            this.ClientSize = new System.Drawing.Size(572, 474);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
             this.Controls.Add(this.buttonSee);
