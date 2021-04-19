@@ -10,7 +10,10 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Data;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+
 
 namespace Demo
 {
@@ -19,23 +22,26 @@ namespace Demo
         public Form1()
         {
             InitializeComponent();
+            dateTimePickerApp.Value = DateTime.Now;
             domainUpDownTreatment.Items.Insert(0, "General Dentistry");
             domainUpDownTreatment.Items.Insert(1, "Dental Hygiene");
             domainUpDownTreatment.Items.Insert(2, "Pediatric Dentistry");
             domainUpDownTreatment.Items.Insert(3, "Orthodontics");
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             //Reset the input
             dateTimePickerApp.Value = DateTime.Now;
-            domainUpDownTreatment.Text = "  ----------------------  ";
+            domainUpDownTreatment.Text = "--please select servicde--";
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
             maskedTextBoxPhone.Text = "";
             textBoxEmail.Text = "";
             maskedTextBoxPatientId.Text = "";
         }
+
 
         private void buttonSee_Click(object sender, EventArgs e)
         {
@@ -48,6 +54,7 @@ namespace Demo
             frm2.Show();
         }
 
+
         private void buttonStartNew_Click(object sender, EventArgs e)
         {
             buttonSee.Enabled = true;
@@ -55,11 +62,14 @@ namespace Demo
             buttonStartNew.Enabled = false;
         }
 
+
         private void buttonBook_Click(object sender, EventArgs e)
         {
             bool validation = true;
-            string validation_msg = "";
-            string time = dateTimePickerApp.Value.ToShortDateString();
+            string msg = "";
+            DateTime now = DateTime.Now;
+            DateTime start_time = dateTimePickerApp.Value;
+
             string treatment = domainUpDownTreatment.Text;
             string patient_id = maskedTextBoxPatientId.Text;
             string first_name = textBoxFirstName.Text;
@@ -67,47 +77,65 @@ namespace Demo
             string phone = maskedTextBoxPhone.Text;
             string email = textBoxEmail.Text;
 
-//            if (dateTimePickerApp.Value.Date <= DateTime.Now)
-//            {
-//                validation_msg += "Appointment time must be later than the current time.\n";
-//                validation = false;
-//            }
-            if (domainUpDownTreatment.Text == "  ----------------------  ")
-            {
-                validation_msg += "Please select appropriate treatment.\n";
-                validation = false;
-            }
-            if (textBoxFirstName.Text == "" || textBoxLastName.Text == "")
-            {
-                validation_msg += "Please enter first and last name.\n";
-                validation = false;
-            }
-            if (maskedTextBoxPhone.Text.Length < 11)
-            {
-                validation_msg += "Please enter a proper phone number.\n";
-                validation = false;
-            }
 
+            //Validation-----------------------------------------------------------------------------------
+            if (start_time < now)
+            {
+                msg += "Appointment time must be later than the current time.\n";
+                validation = false;
+            }
+            if (treatment == "--please select servicde--")
+            {
+                msg += "Please select an appropriate treatment.\n";
+                validation = false;
+            }
+            if (patient_id.Length != 5)
+            {
+                msg += "Patient ID must be five degits.\n";
+                validation = false;
+            }
+            if (first_name == "" || last_name == "")
+            {
+                msg += "Please enter first and last name.\n";
+                validation = false;
+            }
+            if (!Regex.IsMatch(first_name, @"^[a-zA-Z]+$") || !Regex.IsMatch(last_name, @"^[a-zA-Z]+$"))
+            {
+                msg += "First and last name must be alphabets only.\n";
+                validation = false;
+            }
+            if (phone.Length < 15)
+            {
+                msg += "Please enter a proper phone number.\n";
+                validation = false;
+            }
 
             if (!validation)
-            { 
-             richTextBoxAlert.Text = validation_msg;
-            
+            {
+                //If any information is not valid the message will be shown
+                MessageBox.Show(msg);
             }
-
-
-            if (validation)
+            else
             {
                 try
                 {
+                    DateTime end_time;
+                    if (treatment == "Dental Hygiene")
+                    {
+                        end_time = start_time.AddHours(1);
+                    }
+                    end_time = start_time.AddHours(2);
+                    string start_time_string = start_time.ToString("yyyy/MM/dd HH:mm");
+                    string end_time_string = end_time.ToString("yyyy/MM/dd HH:mm");
+
                     string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
                     MySqlConnection conn = new MySqlConnection(connection);
                     //Connect to the database
                     conn.Open();
-                    string sql = "insert into appointment (start_time, treatment, patient_id, first_name, last_name, phone, email) values (" + time + ", " + treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
+                    string sql = "insert into appointment (start_time, end_time, treatment, patient_id, first_name, last_name, phone, email) values (" + start_time_string + ", " + end_time_string + ", "+ treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Successfully booked!" + "\nTime: " + dateTimePickerApp.Text + "\nTreatment: " + domainUpDownTreatment.Text + "\nPatient ID: " + maskedTextBoxPatientId.Text + "\nFirst Name" + textBoxFirstName.Text + "\nLast Name" + textBoxLastName.Text + "\nPhone: " + maskedTextBoxPhone.Text + "\nE-mail: " + textBoxEmail.Text);
+                    MessageBox.Show("Successfully booked!" + "\nTime: " + start_time + "\nTreatment: " + treatment + "\nPatient ID: " + patient_id + "\nFirst Name" + first_name + "\nLast Name" + last_name + "\nPhone: " + phone + "\nE-mail: " + email);
                     conn.Close();
                 }
                 catch (Exception a)
@@ -115,6 +143,12 @@ namespace Demo
                     MessageBox.Show("[ERROR] " + a.Message);
                 }
             }
+
+
+
+
+
+
         }
     }
 }

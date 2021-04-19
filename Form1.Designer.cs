@@ -55,13 +55,12 @@ namespace Demo
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBoxAlert = new System.Windows.Forms.RichTextBox();
             this.groupBoxAppInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSee
             // 
-            this.buttonSee.Location = new System.Drawing.Point(186, 12);
+            this.buttonSee.Location = new System.Drawing.Point(45, 12);
             this.buttonSee.Name = "buttonSee";
             this.buttonSee.Size = new System.Drawing.Size(200, 35);
             this.buttonSee.TabIndex = 0;
@@ -71,7 +70,7 @@ namespace Demo
             // 
             // buttonStartNew
             // 
-            this.buttonStartNew.Location = new System.Drawing.Point(461, 12);
+            this.buttonStartNew.Location = new System.Drawing.Point(304, 12);
             this.buttonStartNew.Name = "buttonStartNew";
             this.buttonStartNew.Size = new System.Drawing.Size(200, 35);
             this.buttonStartNew.TabIndex = 1;
@@ -104,7 +103,7 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label6);
             this.groupBoxAppInfo.Controls.Add(this.label5);
             this.groupBoxAppInfo.Controls.Add(this.label4);
-            this.groupBoxAppInfo.Location = new System.Drawing.Point(12, 53);
+            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 53);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
             this.groupBoxAppInfo.Size = new System.Drawing.Size(459, 380);
             this.groupBoxAppInfo.TabIndex = 2;
@@ -193,7 +192,7 @@ namespace Demo
             this.domainUpDownTreatment.Name = "domainUpDownTreatment";
             this.domainUpDownTreatment.Size = new System.Drawing.Size(200, 26);
             this.domainUpDownTreatment.TabIndex = 8;
-            this.domainUpDownTreatment.Text = "  -------------------------";
+            this.domainUpDownTreatment.Text = "--please select servicde--";
             // 
             // labelPatientId
             // 
@@ -335,21 +334,11 @@ namespace Demo
             this.label4.TabIndex = 7;
             this.label4.Text = "*";
             // 
-            // richTextBoxAlert
-            // 
-            this.richTextBoxAlert.Location = new System.Drawing.Point(486, 53);
-            this.richTextBoxAlert.Name = "richTextBoxAlert";
-            this.richTextBoxAlert.Size = new System.Drawing.Size(444, 380);
-            this.richTextBoxAlert.TabIndex = 3;
-            this.richTextBoxAlert.Text = "";
-            this.richTextBoxAlert.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 454);
-            this.Controls.Add(this.richTextBoxAlert);
+            this.ClientSize = new System.Drawing.Size(572, 454);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
             this.Controls.Add(this.buttonSee);
@@ -388,7 +377,6 @@ namespace Demo
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBoxAlert;
         private System.Windows.Forms.Label labelRequiredDescription;
     }
 }
