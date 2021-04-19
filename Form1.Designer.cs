@@ -55,6 +55,7 @@ namespace Demo
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxAlert = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBoxAppInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +103,7 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label6);
             this.groupBoxAppInfo.Controls.Add(this.label5);
             this.groupBoxAppInfo.Controls.Add(this.label4);
-            this.groupBoxAppInfo.Location = new System.Drawing.Point(12, 80);
+            this.groupBoxAppInfo.Location = new System.Drawing.Point(12, 53);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
             this.groupBoxAppInfo.Size = new System.Drawing.Size(475, 355);
             this.groupBoxAppInfo.TabIndex = 2;
@@ -240,9 +241,11 @@ namespace Demo
             this.dateTimePickerApp.CustomFormat = "yyyy/MM/dd HH:mm";
             this.dateTimePickerApp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerApp.Location = new System.Drawing.Point(233, 46);
+            this.dateTimePickerApp.MinDate = new System.DateTime(2021, 4, 24, 23, 59, 59, 0);
             this.dateTimePickerApp.Name = "dateTimePickerApp";
             this.dateTimePickerApp.Size = new System.Drawing.Size(200, 26);
             this.dateTimePickerApp.TabIndex = 1;
+            this.dateTimePickerApp.Value = new System.DateTime(2021, 4, 24, 23, 59, 59, 0);
             // 
             // labelTime
             // 
@@ -321,17 +324,27 @@ namespace Demo
             // 
             // richTextBoxAlert
             // 
-            this.richTextBoxAlert.Location = new System.Drawing.Point(508, 89);
+            this.richTextBoxAlert.Location = new System.Drawing.Point(508, 53);
             this.richTextBoxAlert.Name = "richTextBoxAlert";
-            this.richTextBoxAlert.Size = new System.Drawing.Size(313, 346);
+            this.richTextBoxAlert.Size = new System.Drawing.Size(313, 355);
             this.richTextBoxAlert.TabIndex = 3;
             this.richTextBoxAlert.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(338, 454);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 43);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 470);
+            this.ClientSize = new System.Drawing.Size(833, 509);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.richTextBoxAlert);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
@@ -372,6 +385,7 @@ namespace Demo
         private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBoxAlert;
+        private System.Windows.Forms.Button button2;
     }
 }
 

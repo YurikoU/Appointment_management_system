@@ -28,7 +28,7 @@ namespace Demo
         {
             //Reset the input
             dateTimePickerApp.Value = DateTime.Now;
-            domainUpDownTreatment.Text = "  -------------------------";
+            domainUpDownTreatment.Text = "  ----------------------  ";
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
             maskedTextBoxPhone.Text = "";
@@ -56,23 +56,38 @@ namespace Demo
 
         private void buttonBook_Click(object sender, EventArgs e)
         {
-            string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
-            MySqlConnection conn = new MySqlConnection(connection);
-            //Connect to the database
-            conn.Open();
-            DataTable dt = new DataTable();
-            string sql = "select appointment_id 'Appointment ID', start_time 'Start Time', end_time 'End Time', treatment Treatment, patient_id 'Patient ID', first_name 'First Name', last_name 'Last Name', phone 'Phone', email 'E-mail' from appointment where start_time >= now();";
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            da.Fill(dt);
-            //Display all reservation on the app
-            //dataGridViewCalendar.DataSource = dt;
-            //Close the database connection
-            //conn.Close();
+            string time = dateTimePickerApp.Text;
+            string treatment = domainUpDownTreatment.Text;
+            string patient_id = maskedTextBoxPatientId.Text;
+            string first_name = textBoxFirstName.Text;
+            string last_name = textBoxLastName.Text;
+            string phone = maskedTextBoxPhone.Text;
+            string email = textBoxEmail.Text;
 
-            if (dateTimePickerApp.Value <= DateTime.Now)
+            try 
             {
-                richTextBoxAlert.Text = "Appointment time must be later than the current time."
+                string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
+                MySqlConnection conn = new MySqlConnection(connection);
+                //Connect to the database
+                conn.Open();
+                string sql = "insert into appointment (start_time, treatment, patient_id, first_name, last_name, phone, email) values (" + time + ", " + treatment + ", " + patient_id + ", " + first_name + ", " + last_name + ", " + phone + ", " + email + ");";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully booked!" + "\nTime: " + dateTimePickerApp.Text + "\nTreatment: " + domainUpDownTreatment.Text + "\nPatient ID: " + maskedTextBoxPatientId.Text + "\nFirst Name" + textBoxFirstName.Text + "\nLast Name" + textBoxLastName.Text + "\nPhone: " + maskedTextBoxPhone.Text + "\nE-mail: " + textBoxEmail.Text);
+                conn.Close();
             }
+            catch (Exception a) {
+                MessageBox.Show("ERROR: " + a.Message);    
+            }
+
+
+
+
+
+//            if (dateTimePickerApp.Value <= DateTime.Now)
+//            {
+//                richTextBoxAlert.Text = "Appointment time must be later than the current time.";
+//            }
 
 
         }
