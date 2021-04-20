@@ -55,6 +55,7 @@ namespace Demo
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.groupBoxAppInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +104,7 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label6);
             this.groupBoxAppInfo.Controls.Add(this.label5);
             this.groupBoxAppInfo.Controls.Add(this.label4);
-            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 72);
+            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 74);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
             this.groupBoxAppInfo.Size = new System.Drawing.Size(459, 380);
             this.groupBoxAppInfo.TabIndex = 2;
@@ -334,11 +335,21 @@ namespace Demo
             this.label4.TabIndex = 7;
             this.label4.Text = "*";
             // 
+            // groupBoxSearch
+            // 
+            this.groupBoxSearch.Location = new System.Drawing.Point(530, 67);
+            this.groupBoxSearch.Name = "groupBoxSearch";
+            this.groupBoxSearch.Size = new System.Drawing.Size(281, 387);
+            this.groupBoxSearch.TabIndex = 3;
+            this.groupBoxSearch.TabStop = false;
+            this.groupBoxSearch.Text = "Search Patient ID";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 474);
+            this.ClientSize = new System.Drawing.Size(823, 486);
+            this.Controls.Add(this.groupBoxSearch);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
             this.Controls.Add(this.buttonSee);
@@ -378,6 +389,7 @@ namespace Demo
         private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelRequiredDescription;
+        private System.Windows.Forms.GroupBox groupBoxSearch;
     }
 }
 

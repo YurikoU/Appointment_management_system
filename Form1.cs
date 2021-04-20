@@ -39,7 +39,7 @@ namespace Demo
             maskedTextBoxPhone.Text = "";
             textBoxEmail.Text = "";
             maskedTextBoxPatientId.Text = "";
-        }
+        }//End of button1_Click method
 
 
         private void buttonSee_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace Demo
             //Call Form2.cs to see the existing appointments
             Form2 frm2 = new Form2();
             frm2.Show();
-        }
+        }//End of buttonSee_Click() method
 
 
         private void buttonStartNew_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace Demo
             buttonSee.Enabled = true;
             groupBoxAppInfo.Visible = true;
             buttonStartNew.Enabled = false;
-        }
+        }//End of buttonStartNew_Click() method
 
 
         private void buttonBook_Click(object sender, EventArgs e)
@@ -78,7 +78,6 @@ namespace Demo
             string last_name = textBoxLastName.Text;
             string phone = maskedTextBoxPhone.Text;
             string email = textBoxEmail.Text;
-
             EmailAddressAttribute email_validation = new EmailAddressAttribute();
 
 
@@ -200,12 +199,13 @@ namespace Demo
                     MessageBox.Show("[ERROR] " + a.Message, "Reservation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+        }//End of buttonBook_Click() method
 
 
 
 
 
 
-        }
-    }
-}
+
+    }//End of public partial class Form1 : Form
+}//End of namespace Demo
