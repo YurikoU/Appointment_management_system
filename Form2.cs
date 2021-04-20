@@ -19,7 +19,7 @@ namespace Demo
         {
             InitializeComponent();
 
-            string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=; ";
+            string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=;";
             MySqlConnection conn = new MySqlConnection(connection);
             //Connect to the database
             conn.Open();

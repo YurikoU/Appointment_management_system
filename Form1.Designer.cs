@@ -192,7 +192,7 @@ namespace Demo
             this.domainUpDownTreatment.Name = "domainUpDownTreatment";
             this.domainUpDownTreatment.Size = new System.Drawing.Size(200, 26);
             this.domainUpDownTreatment.TabIndex = 8;
-            this.domainUpDownTreatment.Text = "--please select servicde--";
+            this.domainUpDownTreatment.Text = "--please select service--";
             // 
             // labelPatientId
             // 

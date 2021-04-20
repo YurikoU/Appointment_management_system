@@ -33,7 +33,7 @@ namespace Demo
         {
             //Reset the input
             dateTimePickerApp.Value = DateTime.Now;
-            domainUpDownTreatment.Text = "--please select servicde--";
+            domainUpDownTreatment.Text = "--please select service--";
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
             maskedTextBoxPhone.Text = "";
@@ -126,10 +126,6 @@ namespace Demo
                     validation = false;
                 }
             }
-            if (email == null)
-            {
-                email = "";            
-            }
             //End of validation---------------------------------------------------------------------------
 
 
@@ -140,40 +136,64 @@ namespace Demo
             }
             else
             {
-                try
+                DateTime end_time;
+                if (treatment == "Dental Hygiene")
                 {
-                    DateTime end_time;
-                    if (treatment == "Dental Hygiene")
-                    {
-                        end_time = start_time.AddHours(1);
-                    } else
-                    { 
-                        end_time = start_time.AddHours(2);
-                    }
-                    string start_time_string = start_time.ToString();
-                    string end_time_string = end_time.ToString();
+                    //Only dental hygiene requires a hour
+                    end_time = start_time.AddHours(1);
+                }
+                else
+                {
+                    //The other treatments all require two hours
+                    end_time = start_time.AddHours(2);
+                }
 
-                    string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd= ";
+                try 
+                {
+                    //Connect to the database
+                    string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=;";
                     MySqlConnection conn = new MySqlConnection(connection);
                     conn.Open();
                     MySqlCommand cmd = conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into appointment (start_time, end_time, treatment, patient_id, first_name, last_name, phone, email) values (@start_time, @end_time, @treatment, @patient_id, @first_name, @last_name, @phone, @email);";
-                    cmd.Parameters.AddWithValue("@start_time", start_time_string);
-                    cmd.Parameters.AddWithValue("@end_time", end_time_string);
-                    cmd.Parameters.AddWithValue("@treatment", treatment);
-                    cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                    cmd.Parameters.AddWithValue("@first_name", first_name);
-                    cmd.Parameters.AddWithValue("@last_name", last_name);
-                    cmd.Parameters.AddWithValue("@phone", phone);
-                    cmd.Parameters.AddWithValue("@email", email);
-
-                    cmd.ExecuteNonQuery();
-
-
-                    string success = "Successfully booked!" + "\nTime: " + start_time + "\nTreatment: " + treatment + "\nPatient ID: " + patient_id + "\nFirst Name" + first_name + "\nLast Name" + last_name + "\nPhone: " + phone + "\nE-mail: " + email;
-                    MessageBox.Show(success, "Success!", MessageBoxButtons.OK);
+                    //Check if the date and time is available
+                    cmd.CommandText = "select count(appointment_id) from appointment where((@start_time < end_time AND start_time <= @start_time)  OR  (start_time < @end_time AND @end_time <= end_time)  OR  (start_time <= @start_time AND @end_time <= end_time));";
+                    cmd.Parameters.AddWithValue("@start_time", start_time);
+                    cmd.Parameters.AddWithValue("@end_time", end_time);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
                     conn.Close();
+
+                    if (count != 0)
+                    {
+                        //If the appointment date or time is not available, the message will be shown
+                        MessageBox.Show("Sorry! There are existing appointment(s) that have the same appointment time", "Reservation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    } else
+                    {
+                        //Otherwise, a new appointment will be inserted into the database
+                        try
+                        {
+                            conn.Open();
+                            cmd.CommandText = "insert into appointment (start_time, end_time, treatment, patient_id, first_name, last_name, phone, email) values (@start_time, @end_time, @treatment, @patient_id, @first_name, @last_name, @phone, @email);";
+                            cmd.Parameters.AddWithValue("@treatment", treatment);
+                            cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                            cmd.Parameters.AddWithValue("@first_name", first_name);
+                            cmd.Parameters.AddWithValue("@last_name", last_name);
+                            cmd.Parameters.AddWithValue("@phone", phone);
+                            cmd.Parameters.AddWithValue("@email", email);
+                            cmd.ExecuteNonQuery();
+
+                            //Once successfully booked, the whole information will be shown
+                            string success = "Successfully booked!" + "\nTime: " + start_time + "\nTreatment: " + treatment + "\nPatient ID: " + patient_id + "\nFirst Name" + first_name + "\nLast Name" + last_name + "\nPhone: " + phone + "\nE-mail: " + email;
+                            MessageBox.Show(success, "Success!", MessageBoxButtons.OK);
+                            conn.Close();
+                        }
+                        catch (Exception a)
+                        {
+                            MessageBox.Show("[ERROR] " + a.Message, "Reservation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+
                 }
                 catch (Exception a)
                 {
