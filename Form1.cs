@@ -8,6 +8,7 @@ Final Project
 
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text.RegularExpressions;
@@ -46,6 +47,7 @@ namespace Demo
         {
             buttonSee.Enabled = false;
             groupBoxAppInfo.Visible = false;
+            groupBoxSearch.Visible = false;
             buttonStartNew.Enabled = true;
 
             //Call Form2.cs to see the existing appointments
@@ -58,6 +60,7 @@ namespace Demo
         {
             buttonSee.Enabled = true;
             groupBoxAppInfo.Visible = true;
+            groupBoxSearch.Visible = true;
             buttonStartNew.Enabled = false;
         }//End of buttonStartNew_Click() method
 
@@ -202,9 +205,60 @@ namespace Demo
         }//End of buttonBook_Click() method
 
 
+        private void buttonSearchClear_Click(object sender, EventArgs e)
+        {
+            maskedTextBoxSearchPhone.Text = "";
+            textBoxSearchPatientId.Text = "";
+            textBoxSearchFirstName.Text = "";
+            textBoxSearchLastName.Text = "";
+            textBoxSearchEmail.Text = "";
+        }
 
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string phone_search = maskedTextBoxSearchPhone.Text;
+            if (phone_search.Length < 15)
+            {
+                MessageBox.Show("Please enter a proper phone number.");
+            }
+            else {
+                try
+                {
+                    //Connect to the database
+                    string connection = "Server=localhost; Database=mysql_winter2021; uid=root; pwd=;";
+                    MySqlConnection conn = new MySqlConnection(connection);
+                    conn.Open();
+                    MySqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    
+                    //Show the patient info searching by their phone number from the database
+                    cmd.CommandText = "select patient_id from patient where phone = @phone;";
+                    cmd.Parameters.AddWithValue("@phone", phone_search);
+                    if (Convert.ToString(cmd.ExecuteScalar()) == "")
+                    {
+                        //If the database doesn't have that phone number, the message will be shown
+                        MessageBox.Show("There isn't a patient with the enterd phone number", "No Patient Found!", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else {
+                        textBoxSearchPatientId.Text = Convert.ToString(cmd.ExecuteScalar());
+                        cmd.CommandText = "select first_name from patient where phone = @phone;";
+                        textBoxSearchFirstName.Text = Convert.ToString(cmd.ExecuteScalar());
+                        cmd.CommandText = "select last_name from patient where phone = @phone;";
+                        textBoxSearchLastName.Text = Convert.ToString(cmd.ExecuteScalar());
+                        cmd.CommandText = "select email from patient where phone = @phone;";
+                        textBoxSearchEmail.Text = Convert.ToString(cmd.ExecuteScalar());
+                    }
 
-
+                    //Close the database connection
+                    conn.Close();
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show("[ERROR] " + a.Message, "Reservation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }//End of buttonSearch_Click() method
 
 
     }//End of public partial class Form1 : Form

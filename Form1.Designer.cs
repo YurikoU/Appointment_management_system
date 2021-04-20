@@ -56,12 +56,25 @@ namespace Demo
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.textBoxSearchEmail = new System.Windows.Forms.TextBox();
+            this.textBoxSearchLastName = new System.Windows.Forms.TextBox();
+            this.textBoxSearchFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxSearchPatientId = new System.Windows.Forms.TextBox();
+            this.labelSearchEmail = new System.Windows.Forms.Label();
+            this.labelSearchLastName = new System.Windows.Forms.Label();
+            this.labelSearchFirstName = new System.Windows.Forms.Label();
+            this.labelSearchPatientId = new System.Windows.Forms.Label();
+            this.buttonSearchClear = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.labelSearchPhone = new System.Windows.Forms.Label();
+            this.maskedTextBoxSearchPhone = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxAppInfo.SuspendLayout();
+            this.groupBoxSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSee
             // 
-            this.buttonSee.Location = new System.Drawing.Point(45, 12);
+            this.buttonSee.Location = new System.Drawing.Point(45, 16);
             this.buttonSee.Name = "buttonSee";
             this.buttonSee.Size = new System.Drawing.Size(200, 35);
             this.buttonSee.TabIndex = 0;
@@ -71,7 +84,8 @@ namespace Demo
             // 
             // buttonStartNew
             // 
-            this.buttonStartNew.Location = new System.Drawing.Point(304, 12);
+            this.buttonStartNew.Enabled = false;
+            this.buttonStartNew.Location = new System.Drawing.Point(304, 16);
             this.buttonStartNew.Name = "buttonStartNew";
             this.buttonStartNew.Size = new System.Drawing.Size(200, 35);
             this.buttonStartNew.TabIndex = 1;
@@ -104,13 +118,12 @@ namespace Demo
             this.groupBoxAppInfo.Controls.Add(this.label6);
             this.groupBoxAppInfo.Controls.Add(this.label5);
             this.groupBoxAppInfo.Controls.Add(this.label4);
-            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 74);
+            this.groupBoxAppInfo.Location = new System.Drawing.Point(45, 89);
             this.groupBoxAppInfo.Name = "groupBoxAppInfo";
             this.groupBoxAppInfo.Size = new System.Drawing.Size(459, 380);
             this.groupBoxAppInfo.TabIndex = 2;
             this.groupBoxAppInfo.TabStop = false;
             this.groupBoxAppInfo.Text = "Appointment Information";
-            this.groupBoxAppInfo.Visible = false;
             // 
             // labelRequiredDescription
             // 
@@ -337,18 +350,134 @@ namespace Demo
             // 
             // groupBoxSearch
             // 
-            this.groupBoxSearch.Location = new System.Drawing.Point(530, 67);
+            this.groupBoxSearch.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.groupBoxSearch.Controls.Add(this.textBoxSearchEmail);
+            this.groupBoxSearch.Controls.Add(this.textBoxSearchLastName);
+            this.groupBoxSearch.Controls.Add(this.textBoxSearchFirstName);
+            this.groupBoxSearch.Controls.Add(this.textBoxSearchPatientId);
+            this.groupBoxSearch.Controls.Add(this.labelSearchEmail);
+            this.groupBoxSearch.Controls.Add(this.labelSearchLastName);
+            this.groupBoxSearch.Controls.Add(this.labelSearchFirstName);
+            this.groupBoxSearch.Controls.Add(this.labelSearchPatientId);
+            this.groupBoxSearch.Controls.Add(this.buttonSearchClear);
+            this.groupBoxSearch.Controls.Add(this.buttonSearch);
+            this.groupBoxSearch.Controls.Add(this.labelSearchPhone);
+            this.groupBoxSearch.Controls.Add(this.maskedTextBoxSearchPhone);
+            this.groupBoxSearch.Location = new System.Drawing.Point(537, 89);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(281, 387);
+            this.groupBoxSearch.Size = new System.Drawing.Size(331, 341);
             this.groupBoxSearch.TabIndex = 3;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search Patient ID";
+            // 
+            // textBoxSearchEmail
+            // 
+            this.textBoxSearchEmail.Location = new System.Drawing.Point(111, 276);
+            this.textBoxSearchEmail.Name = "textBoxSearchEmail";
+            this.textBoxSearchEmail.Size = new System.Drawing.Size(198, 26);
+            this.textBoxSearchEmail.TabIndex = 11;
+            // 
+            // textBoxSearchLastName
+            // 
+            this.textBoxSearchLastName.Location = new System.Drawing.Point(111, 244);
+            this.textBoxSearchLastName.Name = "textBoxSearchLastName";
+            this.textBoxSearchLastName.Size = new System.Drawing.Size(198, 26);
+            this.textBoxSearchLastName.TabIndex = 10;
+            // 
+            // textBoxSearchFirstName
+            // 
+            this.textBoxSearchFirstName.Location = new System.Drawing.Point(109, 212);
+            this.textBoxSearchFirstName.Name = "textBoxSearchFirstName";
+            this.textBoxSearchFirstName.Size = new System.Drawing.Size(200, 26);
+            this.textBoxSearchFirstName.TabIndex = 9;
+            // 
+            // textBoxSearchPatientId
+            // 
+            this.textBoxSearchPatientId.Location = new System.Drawing.Point(109, 180);
+            this.textBoxSearchPatientId.Name = "textBoxSearchPatientId";
+            this.textBoxSearchPatientId.Size = new System.Drawing.Size(200, 26);
+            this.textBoxSearchPatientId.TabIndex = 8;
+            // 
+            // labelSearchEmail
+            // 
+            this.labelSearchEmail.AutoSize = true;
+            this.labelSearchEmail.Location = new System.Drawing.Point(19, 279);
+            this.labelSearchEmail.Name = "labelSearchEmail";
+            this.labelSearchEmail.Size = new System.Drawing.Size(53, 20);
+            this.labelSearchEmail.TabIndex = 7;
+            this.labelSearchEmail.Text = "E-mail";
+            // 
+            // labelSearchLastName
+            // 
+            this.labelSearchLastName.AutoSize = true;
+            this.labelSearchLastName.Location = new System.Drawing.Point(19, 247);
+            this.labelSearchLastName.Name = "labelSearchLastName";
+            this.labelSearchLastName.Size = new System.Drawing.Size(86, 20);
+            this.labelSearchLastName.TabIndex = 6;
+            this.labelSearchLastName.Text = "Last Name";
+            // 
+            // labelSearchFirstName
+            // 
+            this.labelSearchFirstName.AutoSize = true;
+            this.labelSearchFirstName.Location = new System.Drawing.Point(19, 215);
+            this.labelSearchFirstName.Name = "labelSearchFirstName";
+            this.labelSearchFirstName.Size = new System.Drawing.Size(86, 20);
+            this.labelSearchFirstName.TabIndex = 5;
+            this.labelSearchFirstName.Text = "First Name";
+            // 
+            // labelSearchPatientId
+            // 
+            this.labelSearchPatientId.AutoSize = true;
+            this.labelSearchPatientId.Location = new System.Drawing.Point(19, 183);
+            this.labelSearchPatientId.Name = "labelSearchPatientId";
+            this.labelSearchPatientId.Size = new System.Drawing.Size(80, 20);
+            this.labelSearchPatientId.TabIndex = 4;
+            this.labelSearchPatientId.Text = "Patient ID";
+            // 
+            // buttonSearchClear
+            // 
+            this.buttonSearchClear.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonSearchClear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonSearchClear.Location = new System.Drawing.Point(227, 93);
+            this.buttonSearchClear.Name = "buttonSearchClear";
+            this.buttonSearchClear.Size = new System.Drawing.Size(60, 35);
+            this.buttonSearchClear.TabIndex = 3;
+            this.buttonSearchClear.Text = "clear";
+            this.buttonSearchClear.UseVisualStyleBackColor = false;
+            this.buttonSearchClear.Click += new System.EventHandler(this.buttonSearchClear_Click);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(109, 93);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(73, 35);
+            this.buttonSearch.TabIndex = 2;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // labelSearchPhone
+            // 
+            this.labelSearchPhone.AutoSize = true;
+            this.labelSearchPhone.Location = new System.Drawing.Point(19, 56);
+            this.labelSearchPhone.Name = "labelSearchPhone";
+            this.labelSearchPhone.Size = new System.Drawing.Size(55, 20);
+            this.labelSearchPhone.TabIndex = 1;
+            this.labelSearchPhone.Text = "Phone";
+            // 
+            // maskedTextBoxSearchPhone
+            // 
+            this.maskedTextBoxSearchPhone.Location = new System.Drawing.Point(109, 53);
+            this.maskedTextBoxSearchPhone.Mask = "(999) 0000-0000";
+            this.maskedTextBoxSearchPhone.Name = "maskedTextBoxSearchPhone";
+            this.maskedTextBoxSearchPhone.Size = new System.Drawing.Size(200, 26);
+            this.maskedTextBoxSearchPhone.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 486);
+            this.ClientSize = new System.Drawing.Size(939, 511);
             this.Controls.Add(this.groupBoxSearch);
             this.Controls.Add(this.groupBoxAppInfo);
             this.Controls.Add(this.buttonStartNew);
@@ -357,6 +486,8 @@ namespace Demo
             this.Text = "Appointment Management System";
             this.groupBoxAppInfo.ResumeLayout(false);
             this.groupBoxAppInfo.PerformLayout();
+            this.groupBoxSearch.ResumeLayout(false);
+            this.groupBoxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -390,6 +521,18 @@ namespace Demo
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelRequiredDescription;
         private System.Windows.Forms.GroupBox groupBoxSearch;
+        private System.Windows.Forms.Label labelSearchPhone;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxSearchPhone;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonSearchClear;
+        private System.Windows.Forms.Label labelSearchEmail;
+        private System.Windows.Forms.Label labelSearchLastName;
+        private System.Windows.Forms.Label labelSearchFirstName;
+        private System.Windows.Forms.Label labelSearchPatientId;
+        private System.Windows.Forms.TextBox textBoxSearchPatientId;
+        private System.Windows.Forms.TextBox textBoxSearchFirstName;
+        private System.Windows.Forms.TextBox textBoxSearchEmail;
+        private System.Windows.Forms.TextBox textBoxSearchLastName;
     }
 }
 
